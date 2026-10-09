@@ -53,17 +53,17 @@ public:
     void initialize() override {
         fins::ParamLoader config("LidarBoxFilter");
 
-        config_.enable_box_filter = config.get("enable_box_filter", true);
-        config_.filter_target_frame = config.get("filter_target_frame", std::string("base_lidar"));
-        config_.filter_box_min_x = config.get("filter_box_min_x", -1.0);
-        config_.filter_box_max_x = config.get("filter_box_max_x", 2.0);
-        config_.filter_box_min_y = config.get("filter_box_min_y", -1.0);
-        config_.filter_box_max_y = config.get("filter_box_max_y", 1.0);
-        config_.filter_box_min_z = config.get("filter_box_min_z", -0.5);
-        config_.filter_box_max_z = config.get("filter_box_max_z", 1.5);
-        config_.lidar_blind_zone = config.get("lidar_blind_zone", 0.05);
-        config_.enable_z_filter = config.get("enable_z_filter", true);
-        config_.filter_z_min = config.get("filter_z_min", 0.0);
+        config_.enable_box_filter = true;
+        config_.filter_target_frame = std::string("base_lidar");
+        config_.filter_box_min_x = -0.32;
+        config_.filter_box_max_x = 0.32;
+        config_.filter_box_min_y = -0.32;
+        config_.filter_box_max_y =0.32;
+        config_.filter_box_min_z = -0.13;
+        config_.filter_box_max_z = 0.36;
+        config_.lidar_blind_zone = 0.05;
+        config_.enable_z_filter = false;
+        config_.filter_z_min = 0.0;
 
         target_frame_id_ = config_.filter_target_frame;
     }
